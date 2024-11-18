@@ -18,6 +18,6 @@ jobs:
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
     - name: Create Tunnel
-      run: .\ngrok\sunny.exe --server=free.idcfengye.com:4443 --key=$Env:KEY_VAL
+      run: .\ngrok\windows_amd64\sunny.exe --server=free.idcfengye.com:4443 --key=$Env:KEY_VAL
       env:
         KEY_VAL: ${{ secrets.KEY_VAL }}
